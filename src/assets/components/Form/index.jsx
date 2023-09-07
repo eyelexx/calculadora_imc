@@ -28,16 +28,16 @@ const CalculadoraIMC = () => {
                 <div className="d-flex flex-column gap-3">
                     <input onBlur={e => setPeso(e.target.value)}
                         className="form-control"
-                        type="number" placeholder="Peso"
+                        type="number" placeholder="Peso (Ex.: 78,10)"
                     />
                     <input onBlur={e => setAltura(e.target.value)}
                         className="form-control"
-                        type="number" placeholder="Altura"
+                        type="number" placeholder="Altura (Ex.: 1,83)"
                     />
                 </div>
                 <button onClick={calcula} type="button" className="btn btn-primary">Calcular</button>
             </form>
-            <div className="text-center mt-5">
+            <div className="container text-center mt-5">
                 {
                     resultado !== null ? (
                         <h3>Seu IMC é {resultado}</h3>
@@ -47,42 +47,60 @@ const CalculadoraIMC = () => {
                 }
                 {
                     resultado < 18.5 && resultado != null ? (
-                        <h4>{classificacao.magreza}</h4>
+                        <>
+                            <p className="fs-5">Abaixo do normal (18,5 ou menos)<br /></p>
+                            <p>{classificacao.magreza}</p>
+                        </>                        
                     ) : (
                         <p></p>
                     )
                 }
                 {
                     resultado >= 18.5 && resultado <= 24.9 ? (
-                        <h4>{classificacao.normal}</h4>
+                        <>
+                            <p className="fs-5">Normal (Entre 18,6 e 24,9)<br /></p>
+                            <p>{classificacao.normal}</p>
+                        </> 
                     ) : (
                         <p></p>
                     )
                 }
                 {
                     resultado >= 25 && resultado <= 29.9 ? (
-                        <h4>{classificacao.sobrepeso}</h4>
+                        <>
+                            <p className="fs-5">Sobrepeso (Entre 25,0 e 29,9)<br /></p>
+                            <p>{classificacao.sobrepeso}</p>
+                        </> 
                     ) : (
                         <p></p>
                     )
                 }
                 {
                     resultado >= 30 && resultado <= 34.9 ? (
-                        <h4>{classificacao.obesidadeI}</h4>
+                        <>
+                            <p className="fs-5">Obesidade I (Entre 30,0 e 34,9)<br /></p>
+                            <p>{classificacao.obesidadeI}</p>
+                        </> 
                     ) : (
                         <p></p>
                     )
                 }
                 {
                     resultado >= 35 && resultado <= 39.9 ? (
-                        <h4>{classificacao.obesidadeII}</h4>
+                        <>
+                            <p className="fs-5">Obesidade II (Entre 35,0 e 39,9)<br /></p>
+                            <p>{classificacao.obesidadeII}</p>
+                        </> 
                     ) : (
                         <p></p>
                     )
                 }
                 {
                     resultado >= 40 ? (
-                        <h4>{classificacao.obesidadeIII}</h4>
+                        <>
+                            <p className="fs-5">Obesidade III (Acima de 40,0)<br /></p>
+                            <p>{classificacao.obesidadeIII}</p>
+                        </> 
                     ) : (
                         <p></p>
                     )
