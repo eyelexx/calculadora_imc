@@ -45,26 +45,22 @@ const CalculadoraIMC = () => {
 
     return (
         <>
-            <form className="container d-flex justify-content-center gap-5">
-                <div>
+            <form className="container d-flex justify-content-center gap-3">
+                <div className="d-flex flex-column gap-3">
                     <input onChange={e => setPeso(e.target.value)}
-                        className="form-control mx-5"
-                        type="number"
-                        placeholder="Peso"
+                        className="form-control"
+                        type="number" placeholder="Peso"
                     />
-                </div>
-                <div>
                     <input onChange={e => setAltura(e.target.value)}
-                        className="form-control mx-5"
-                        type="number"
-                        placeholder="Altura"
+                        className="form-control"
+                        type="number" placeholder="Altura"
                     />
                 </div>
-                <button onClick={calc} type="button">Calcular</button>
+                <button onClick={calc} type="button" className="btn btn-primary">Calcular</button>
             </form>
-            <div>
+            <div className="text-center mt-5">
                 {result !== null ? (
-                        <p>Seu IMC é {result}</p>
+                        <h2>Seu IMC é {result}</h2>
                     ) : (
                     <p>Insira seu peso e altura para calcular o IMC.</p>
                 )}
